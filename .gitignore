@@ -1,4 +1,7 @@
 /.idea/
-/shopaholic/.gradle
-/shopaholic/build
-/shopaholic/run
+/build/
+/.gradle/
+/forge-mod/run/
+/server/build/
+/forge-mod/build/
+/forge-mod/mcmodsrepo/
