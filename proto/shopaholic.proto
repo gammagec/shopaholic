@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package = "com.christophergammage";
+option java_outer_classname = "ShopaholicProto";
+
+service ShopaholicService {
+  rpc UpdateScans (UpdateScansRequest) returns (UpdateScansResponse);
+}
+
+message UpdateScansRequest {
+  Position position = 1;
+  int32 range = 2;
+  repeated ShopChest shopChests = 3;
+  string warp = 4;
+}
+
+message UpdateScansResponse {
+  int32 addedShops = 1;
+  int32 removedShops = 2;
+  int32 updatedShops = 3;
+  bool success = 4;
+  string errorMessage = 5;
+}
+
+message Position {
+  int64 x = 1;
+  int64 y = 2;
+  int64 z = 3;
+}
+
+enum TransactionType {
+  UNKNOWN = 0;
+  BUYING = 1;
+  SELLING = 2;
+}
+
+message ShopChest {
+  Position position = 1;
+  string owner = 2;
+  TransactionType transactionType = 3;
+  string itemName = 4;
+  string itemId = 5;
+  int32 quantity = 6;
+  double price = 7;
+  string warp = 8;
+}
